@@ -12,8 +12,8 @@ import XCTest
 class StorageKitTests: XCTestCase {
 
     func testUserDefaults() throws {
-        Storage.Defaults.set(10.0, forKey: "someFloat")
-        XCTAssertEqual(Storage.Defaults.float(forKey: "someFloat"), 10.0)
+        Storage.standard.set(10.0, forKey: "someFloat")
+        XCTAssertEqual(Storage.standard.float(forKey: "someFloat"), 10.0)
     }
 
 }
