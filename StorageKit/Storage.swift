@@ -15,13 +15,13 @@ public class Storage {
 }
 
 public extension UserDefaults {
-    public func increment(value: Int, forKey key: String) {
+    func increment(value: Int, forKey key: String) {
         var count = Storage.standard.integer(forKey: key)
         count += value
         Storage.standard.set(value, forKey: key)
     }
     
-    public func inc1(forKey key: String) {
+    func increment(forKey key: String) {
         self.increment(value: 1, forKey: key)
     }
 }
