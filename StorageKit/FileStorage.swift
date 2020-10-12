@@ -13,7 +13,7 @@ public class FileStorage {
     private let fileManager: FileManager
     private let path: URL
 
-    init(
+    public init(
         path: URL,
         queue: DispatchQueue = .init(label: "DiskCache.Queue"),
         fileManager: FileManager = .default
@@ -25,7 +25,7 @@ public class FileStorage {
 }
 
 extension FileStorage: WritableStorage {
-    func save(value: Data, for key: String) throws {
+    public func save(value: Data, for key: String) throws {
         let url = path.appendingPathComponent(key)
         do {
             try self.createFolder(in: url)
@@ -35,7 +35,7 @@ extension FileStorage: WritableStorage {
         }
     }
 
-    func save(value: Data, for key: String, handler: @escaping Handler<Data>) {
+    public func save(value: Data, for key: String, handler: @escaping Handler<Data>) {
         queue.async {
             do {
                 try self.save(value: value, for: key)
@@ -61,7 +61,7 @@ extension FileStorage {
 }
 
 extension FileStorage: ReadableStorage {
-    func load(for key: String) throws -> Data {
+    public func load(for key: String) throws -> Data {
         let url = path.appendingPathComponent(key)
         guard let data = fileManager.contents(atPath: url.path) else {
             throw StorageError.notFound
@@ -69,7 +69,7 @@ extension FileStorage: ReadableStorage {
         return data
     }
 
-    func load(for key: String, handler: @escaping Handler<Data>) {
+    public func load(for key: String, handler: @escaping Handler<Data>) {
         queue.async {
             handler(Result { try self.load(for: key) })
         }

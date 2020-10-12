@@ -104,9 +104,9 @@
 				F6E0461C2496909700F638F1 /* StorageKit.h */,
 				F6E04633249690D100F638F1 /* Documentation.md */,
 				F6E04634249690D100F638F1 /* Storage.swift */,
+				F67085C4249A747200310500 /* FileStorage.swift */,
 				F67085CC249A747C00310500 /* CodableFileStorage.swift */,
 				F67085CA249A747C00310500 /* CodableFileStorageConfiguration.swift */,
-				F67085C4249A747200310500 /* FileStorage.swift */,
 				F67085CB249A747C00310500 /* CodableFileStorageProtocol.swift */,
 				F67085C5249A747200310500 /* Errors.swift */,
 				F67085C1249A746500310500 /* StorageProtocol.swift */,
@@ -120,8 +120,8 @@
 			children = (
 				F6E046272496909700F638F1 /* StorageKitTests.swift */,
 				F67085D5249A750400310500 /* AsynchronousTest.swift */,
-				F67085D4249A750400310500 /* MockDataTestCase.swift */,
 				F67085D3249A750400310500 /* SynchronousTests.swift */,
+				F67085D4249A750400310500 /* MockDataTestCase.swift */,
 				F6E046292496909700F638F1 /* Info.plist */,
 			);
 			path = StorageKitTests;

@@ -10,12 +10,12 @@ import Foundation
 
 public typealias Handler<T> = (Result<T, Error>) -> Void
 
-protocol ReadableStorage {
+public protocol ReadableStorage {
     func load(for key: String) throws -> Data
     func load(for key: String, handler: @escaping Handler<Data>)
 }
 
-protocol WritableStorage {
+public protocol WritableStorage {
     func save(value: Data, for key: String) throws
     func save(value: Data, for key: String, handler: @escaping Handler<Data>)
 }

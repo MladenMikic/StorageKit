@@ -13,7 +13,7 @@ public class FileStorageContainer {
     public let storage: CodableFileStorage
     private let configuration: CodableFileStorageConfiguration
     
-    init(identifier: String, storage: CodableFileStorage, configuration: CodableFileStorageConfiguration) {
+    public init(identifier: String, storage: CodableFileStorage, configuration: CodableFileStorageConfiguration) {
         self.identifier = identifier
         self.storage = storage
         self.configuration = configuration
@@ -26,7 +26,7 @@ public class CodableFileStorage {
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
 
-    init(
+    public init(
         storage: FileStorage,
         decoder: JSONDecoder = .init(),
         encoder: JSONEncoder = .init()
@@ -36,12 +36,12 @@ public class CodableFileStorage {
         self.encoder = encoder
     }
 
-    func fetch<T: Decodable>(for key: String) throws -> T {
+    public func fetch<T: Decodable>(for key: String) throws -> T {
         let data = try storage.load(for: key)
         return try decoder.decode(T.self, from: data)
     }
     
-    func fetch<T: Decodable>(for key: String, handler: @escaping Handler<T>) {
+    public func fetch<T: Decodable>(for key: String, handler: @escaping Handler<T>) {
         
         self.storage.queue.async { [weak self] in
             do {
@@ -63,12 +63,12 @@ public class CodableFileStorage {
         }
     }
 
-    func save<T: Encodable>(_ value: T, for key: String) throws {
+    public func save<T: Encodable>(_ value: T, for key: String) throws {
         let data = try encoder.encode(value)
         try storage.save(value: data, for: key)
     }
     
-    func save<T: Encodable>(_ value: T, for key: String, handler: @escaping Handler<T>) {
+    public func save<T: Encodable>(_ value: T, for key: String, handler: @escaping Handler<T>) {
         self.storage.queue.async { [weak self] in
             do {
                 if let _ = try self?.encoder.encode(value) {
