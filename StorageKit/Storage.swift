@@ -13,7 +13,11 @@ public class Storage {
     public static let standard: UserDefaults = UserDefaults.standard
     public static var shared = Storage()
     
-    private init() {}
+    /// The default value is URLCache.shared
+    public var preferredURLCache: URLCache
+    private init(preferredURLCache: URLCache = .shared) {
+        self.preferredURLCache = preferredURLCache
+    }
     
     func save<T: Encodable>(_ value: T, for key: String) {
         let path = URL(fileURLWithPath: NSTemporaryDirectory())
@@ -26,6 +30,7 @@ public class Storage {
             print("\n\nStore saved \(value) FAILED.\n\n")
         }
     }
+
 }
 
 public extension UserDefaults {

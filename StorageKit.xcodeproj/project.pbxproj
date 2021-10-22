@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F65A328B2722C99A00431976 /* Storage+URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A328A2722C99A00431976 /* Storage+URLCache.swift */; };
+		F65A328C2722C99A00431976 /* Storage+URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A328A2722C99A00431976 /* Storage+URLCache.swift */; };
 		F67085C2249A746500310500 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C1249A746500310500 /* StorageProtocol.swift */; };
 		F67085C3249A746500310500 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C1249A746500310500 /* StorageProtocol.swift */; };
 		F67085C6249A747200310500 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C4249A747200310500 /* FileStorage.swift */; };
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F65A328A2722C99A00431976 /* Storage+URLCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+URLCache.swift"; sourceTree = "<group>"; };
 		F67085C1249A746500310500 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		F67085C4249A747200310500 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		F67085C5249A747200310500 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 				F6E0461C2496909700F638F1 /* StorageKit.h */,
 				F6E04633249690D100F638F1 /* Documentation.md */,
 				F6E04634249690D100F638F1 /* Storage.swift */,
+				F65A328A2722C99A00431976 /* Storage+URLCache.swift */,
 				F67085C4249A747200310500 /* FileStorage.swift */,
 				F67085CC249A747C00310500 /* CodableFileStorage.swift */,
 				F67085CA249A747C00310500 /* CodableFileStorageConfiguration.swift */,
@@ -239,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65A328B2722C99A00431976 /* Storage+URLCache.swift in Sources */,
 				F67085CD249A747C00310500 /* CodableFileStorageConfiguration.swift in Sources */,
 				F67085C8249A747200310500 /* Errors.swift in Sources */,
 				F67085CF249A747C00310500 /* CodableFileStorageProtocol.swift in Sources */,
@@ -257,6 +262,7 @@
 				F67085C9249A747200310500 /* Errors.swift in Sources */,
 				F67085D2249A747C00310500 /* CodableFileStorage.swift in Sources */,
 				F67085D0249A747C00310500 /* CodableFileStorageProtocol.swift in Sources */,
+				F65A328C2722C99A00431976 /* Storage+URLCache.swift in Sources */,
 				F67085DB249A750400310500 /* AsynchronousTest.swift in Sources */,
 				F67085C7249A747200310500 /* FileStorage.swift in Sources */,
 				F67085D9249A750400310500 /* MockDataTestCase.swift in Sources */,
