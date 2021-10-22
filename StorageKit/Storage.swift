@@ -15,6 +15,16 @@ public class Storage {
     
     /// The default value is URLCache.shared
     public var preferredURLCache: URLCache
+    
+    lazy var byteCountFormatter:ByteCountFormatter = {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = .useAll
+        formatter.countStyle = .file
+        formatter.includesUnit = true
+        formatter.isAdaptive = true
+        return formatter
+    }()
+    
     private init(preferredURLCache: URLCache = .shared) {
         self.preferredURLCache = preferredURLCache
     }
