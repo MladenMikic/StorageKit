@@ -20,6 +20,6 @@ public extension Storage {
         return self.byteCountFormatter.string(fromByteCount: Int64(self.currentURLCacheDiskUsageInBytes))
     }
     
-    public var isSharedURLCacheUsed: Bool { self.preferredURLCache == URLCache.shared }
+    var isSharedURLCacheUsed: Bool { self.preferredURLCache == URLCache.shared }
 
 }
