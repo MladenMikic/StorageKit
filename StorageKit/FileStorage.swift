@@ -22,7 +22,18 @@ public class FileStorage {
         self.queue = queue
         self.fileManager = fileManager
     }
+    
+    public static func withUserDirectory() throws -> FileStorage {
+        do
+        {
+            let userDocumentsDirectoryURL = try FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            return FileStorage(path: userDocumentsDirectoryURL)
+        } catch let error {
+            throw error
+        }
+    }
 }
+
 
 extension FileStorage: WritableStorage {
     public func save(value: Data, for key: String) throws {
