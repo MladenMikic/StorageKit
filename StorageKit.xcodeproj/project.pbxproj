@@ -24,6 +24,8 @@
 		F67085D7249A750400310500 /* SynchronousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085D3249A750400310500 /* SynchronousTests.swift */; };
 		F67085D9249A750400310500 /* MockDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085D4249A750400310500 /* MockDataTestCase.swift */; };
 		F67085DB249A750400310500 /* AsynchronousTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085D5249A750400310500 /* AsynchronousTest.swift */; };
+		F67B11A527282B5500B09C39 /* FileStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B11A427282B5500B09C39 /* FileStorageTests.swift */; };
+		F67B11A727282F3800B09C39 /* CodableFileStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B11A627282F3800B09C39 /* CodableFileStorageTests.swift */; };
 		F6E046232496909700F638F1 /* StorageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E046192496909700F638F1 /* StorageKit.framework */; };
 		F6E046282496909700F638F1 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E046272496909700F638F1 /* UserDefaultsTests.swift */; };
 		F6E0462A2496909700F638F1 /* StorageKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E0461C2496909700F638F1 /* StorageKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +56,8 @@
 		F67085D3249A750400310500 /* SynchronousTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronousTests.swift; sourceTree = "<group>"; };
 		F67085D4249A750400310500 /* MockDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataTestCase.swift; sourceTree = "<group>"; };
 		F67085D5249A750400310500 /* AsynchronousTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousTest.swift; sourceTree = "<group>"; };
+		F67B11A427282B5500B09C39 /* FileStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTests.swift; sourceTree = "<group>"; };
+		F67B11A627282F3800B09C39 /* CodableFileStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFileStorageTests.swift; sourceTree = "<group>"; };
 		F6E046192496909700F638F1 /* StorageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E0461C2496909700F638F1 /* StorageKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageKit.h; sourceTree = "<group>"; };
 		F6E0461D2496909700F638F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				F6E046272496909700F638F1 /* UserDefaultsTests.swift */,
+				F67B11A427282B5500B09C39 /* FileStorageTests.swift */,
+				F67B11A627282F3800B09C39 /* CodableFileStorageTests.swift */,
 				F67085D5249A750400310500 /* AsynchronousTest.swift */,
 				F67085D3249A750400310500 /* SynchronousTests.swift */,
 				F67085D4249A750400310500 /* MockDataTestCase.swift */,
@@ -259,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6E046282496909700F638F1 /* UserDefaultsTests.swift in Sources */,
+				F67B11A527282B5500B09C39 /* FileStorageTests.swift in Sources */,
 				F67085C9249A747200310500 /* Errors.swift in Sources */,
 				F67085D2249A747C00310500 /* CodableFileStorage.swift in Sources */,
+				F67B11A727282F3800B09C39 /* CodableFileStorageTests.swift in Sources */,
 				F67085D0249A747C00310500 /* CodableFileStorageProtocol.swift in Sources */,
 				F65A328C2722C99A00431976 /* Storage+URLCache.swift in Sources */,
 				F67085DB249A750400310500 /* AsynchronousTest.swift in Sources */,
