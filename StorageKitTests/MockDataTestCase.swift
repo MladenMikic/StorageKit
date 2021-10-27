@@ -29,7 +29,7 @@ public enum Events: String {
     case mock1 = "mock1"
 }
 
-public class MockDataTestCase: XCTestCase {
+open class MockDataTestCase: XCTestCase {
     
     public var event1: Event!
     public var localStorage1: FileStorage!
@@ -37,7 +37,6 @@ public class MockDataTestCase: XCTestCase {
     public var codableLocalStorage: CodableFileStorage!
        
     override public func setUp() {
-        
         let path = URL(fileURLWithPath: NSTemporaryDirectory())
         self.localStorage1 = FileStorage(path: path)
         self.codableLocalStorage = CodableFileStorage(storage: self.localStorage1)

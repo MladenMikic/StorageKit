@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum StorageError: Error {
+public enum StorageError: Error {
     case notFound
     case cantWrite(Error)
 }
