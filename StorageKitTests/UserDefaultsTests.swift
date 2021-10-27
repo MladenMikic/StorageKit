@@ -9,7 +9,7 @@
 import XCTest
 @testable import StorageKit
 
-class StorageKitTests: XCTestCase {
+class UserDefaultsTests: XCTestCase {
 
     func testUserDefaults() throws {
         Storage.standard.set(10.0, forKey: "someFloat")
