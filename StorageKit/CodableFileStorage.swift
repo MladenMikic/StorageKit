@@ -41,6 +41,11 @@ public class CodableFileStorage {
         return try decoder.decode(T.self, from: data)
     }
     
+    public func fetchData(for key: String) throws -> Data {
+        let data = try storage.load(for: key)
+        return data
+    }
+    
     public func fetch<T: Decodable>(for key: String, handler: @escaping Handler<T>) {
         
         self.storage.queue.async { [weak self] in
@@ -64,8 +69,12 @@ public class CodableFileStorage {
     }
 
     public func save<T: Encodable>(_ value: T, for key: String) throws {
-        let data = try encoder.encode(value)
-        try storage.save(value: data, for: key)
+        if let dataValue = value as? Data {
+            try storage.save(value: dataValue, for: key)
+        } else {
+            let data = try encoder.encode(value)
+            try storage.save(value: data, for: key)
+        }
     }
     
     public func save<T: Encodable>(_ value: T, for key: String, handler: @escaping Handler<T>) {
