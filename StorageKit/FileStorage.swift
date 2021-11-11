@@ -26,7 +26,7 @@ public class FileStorage {
     public static func withUserDirectory() throws -> FileStorage {
         do
         {
-            let userDocumentsDirectoryURL = try FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let userDocumentsDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             return FileStorage(path: userDocumentsDirectoryURL)
         } catch let error {
             throw error
