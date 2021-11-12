@@ -8,8 +8,11 @@
 import Foundation
 
 
-public class Storage {
+public class Storage: STLoggerProtocol {
  
+    // MARK: - STLoggerProtocol.
+    static var allowsLogging: Bool = true
+    
     public static let standard: UserDefaults = UserDefaults.standard
     public static var shared = Storage()
     
@@ -25,21 +28,26 @@ public class Storage {
         return formatter
     }()
     
+    // MARK: - Init.
+    
     private init(preferredURLCache: URLCache = .shared) {
         self.preferredURLCache = preferredURLCache
     }
     
     func save<T: Encodable>(_ value: T, for key: String) {
+        self.log(message: "\(self): \(#function): \(#line)")
         let path = URL(fileURLWithPath: NSTemporaryDirectory())
         let fileStorage = FileStorage(path: path)
         let codableFileStorage = CodableFileStorage(storage: fileStorage)
         do {
+            self.log(message: "\(self): \(#function): Started saving...")
             try codableFileStorage.save(value, for: key)
-            print("\n\nStore saved \(value) SUCCESS.\n\n")
-        } catch {
-            print("\n\nStore saved \(value) FAILED.\n\n")
+            self.log(message: "\(self): \(#function): SAVED \n\tin: \(path) \n\tfor key: \(key).")
+        } catch let error {
+            self.log(message: "\(self): \(#function): FAILED TO SAVE \n\tin: \(path) \n\tfor key: \(key)\n\twith error: \(error)")
         }
     }
+    
 
 }
 
