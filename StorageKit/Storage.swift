@@ -48,8 +48,19 @@ public class Storage: STLoggerProtocol {
         }
     }
     
+    public func logDiskUtility() {
+       
+        let storageValues =
+        """
+            totalDiskSize: \t\t\(Storage.shared.totalDiskSize.GBs) GB
+            availableDiskSize: \t\(Storage.shared.availableDiskSize.GBs) GB
+            usedDiskSize: \t\t\(Storage.shared.usedDiskSize.GBs) GB
+        """
+        self.log(message: storageValues)
+    }
 
 }
+
 
 public extension UserDefaults {
     func increment(value: Int, forKey key: String) {
