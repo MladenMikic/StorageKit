@@ -9,6 +9,8 @@
 import Foundation
 
 public typealias Handler<T> = (Result<T, Error>) -> Void
+public typealias FailableResultHandler = (Error?) -> Void
+public typealias ItemHandler = (URL?) -> Void
 
 public protocol ReadableStorage {
     func load(for key: String) throws -> Data
