@@ -80,6 +80,55 @@ extension FileStorage: WritableStorage {
             }
         }
     }
+    
+    public func saveItem(from sourceURL: URL, for key: String) throws {
+        
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        self.log(message: "sourceURL :\(sourceURL) key:\(key)")
+        
+        let url = path.appendingPathComponent(key)
+        do {
+            try self.createFolder(in: url)
+            self.log(message: "\(self) :\(#function) Started copying item to disk.")
+            if FileManager.default.fileExists(atPath: url.path) {
+                self.log(message: "\(self) :\(#function) File exists at path: \(url.path).")
+                try FileManager.default.removeItem(at: url)
+            }
+            
+            try FileManager.default.copyItem(at: sourceURL, to: url)
+
+            self.log(message: "\(self) :\(#function) Finished copying to disk.")
+        } catch let error {
+            self.log(message: "\(self) :\(#function) Failed copying to disk with error: \(error).")
+            throw StorageError.cantWrite(error)
+        }
+    }
+    
+    public func saveItem(from sourceURL: URL, for key: String, handler: @escaping FailableResultHandler) {
+        
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        
+        queue.async { [weak self] in
+            
+            guard let strongSelf = self else { return handler(StorageError.releasedSelf) }
+            
+            let url = strongSelf.path.appendingPathComponent(key)
+            do {
+                try strongSelf.createFolder(in: url)
+                strongSelf.log(message: "\(strongSelf) :\(#function) Started copy item to disk.")
+                if FileManager.default.fileExists(atPath: url.path) {
+                    strongSelf.log(message: "\(strongSelf) :\(#function) File exists at path: \(url.path).")
+                    try FileManager.default.removeItem(at: url)
+                }
+                try FileManager.default.copyItem(at: sourceURL, to: url)
+
+                strongSelf.log(message: "\(strongSelf) :\(#function) Finished copying to disk.")
+            } catch let error {
+                strongSelf.log(message: "\(strongSelf) :\(#function) Failed copying to disk with error: \(error).")
+                handler(StorageError.cantWrite(error))
+            }
+        }
+    }
 }
 
 extension FileStorage {
@@ -118,6 +167,21 @@ extension FileStorage: ReadableStorage {
         
         queue.async {
             handler(Result { try self.load(for: key) })
+        }
+    }
+    
+    /// Returns the URL where the item is stored.
+    public func loadItem(for key: String) -> URL {
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        return path.appendingPathComponent(key)
+    }
+    
+    public func load(for key: String, handler: @escaping ItemHandler) {
+        
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        
+        queue.async { [weak self] in
+            handler(self?.path.appendingPathComponent(key))
         }
     }
 }

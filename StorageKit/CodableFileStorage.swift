@@ -82,6 +82,15 @@ public class CodableFileStorage: STLoggerProtocol {
             
         }
     }
+    
+    public func fetchItem(for key: String) -> URL { self.storage.loadItem(for: key) }
+    
+    public func fetchItem(for key: String, handler: @escaping ItemHandler) {
+        
+        self.storage.queue.async { [weak self] in
+            self?.storage.load(for: key, handler: handler)
+        }
+    }
 
     public func save<T: Encodable>(_ value: T, for key: String) throws {
         
@@ -110,19 +119,44 @@ public class CodableFileStorage: STLoggerProtocol {
         self.log(message: "\(self) :\(#function) :\(#line)")
         
         self.storage.queue.async { [weak self] in
+            
+            guard let strongSelf = self else { return handler(.failure(StorageError.releasedSelf)) }
+            
             do {
-                self?.log(message: "\(String(describing: self)) :\(#function) Started storing data.")
-                if let _ = try self?.encoder.encode(value) {
-                    self?.log(message: "\(String(describing: self)) :\(#function) Started storing data.")
-                    handler(.success(value))
-                } else {
-                    handler(.failure(StorageError.notFound))
-                }
+                let data = try strongSelf.encoder.encode(value)
+                strongSelf.log(message: "\(strongSelf) :\(#function) Started storing data.")
+                try strongSelf.storage.save(value: data, for: key)
+                strongSelf.log(message: "\(strongSelf) :\(#function) Data stored.")
+                handler(.success(value))
             } catch let error {
-                self?.log(message: "\(String(describing: self)) :\(#function) Failed with error: \(error).")
+                strongSelf.log(message: "\(strongSelf) :\(#function) Failed with error: \(error).")
                 handler(.failure(error))
             }
         }
+    }
+    
+    public func saveItem(from sourceURL: URL, for key: String) throws {
+        
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        
+        do {
+            try self.storage.saveItem(from: sourceURL, for: key)
+        } catch let error {
+            throw error
+        }
+    }
+    
+    public func saveItem(from sourceURL: URL, for key: String, handler: @escaping FailableResultHandler) {
+        
+        self.storage.queue.async { [weak self] in
+            
+            guard let strongSelf = self else { return handler(StorageError.releasedSelf) }
+            
+            strongSelf.log(message: "\(strongSelf) :\(#function) Started copying item.")
+            strongSelf.storage.saveItem(from: sourceURL, for: key, handler: handler)
+            strongSelf.log(message: "\(strongSelf) :\(#function) Finished copying item.")
+        }
+        
     }
 
 }
