@@ -27,6 +27,7 @@
 		F67085DB249A750400310500 /* AsynchronousTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085D5249A750400310500 /* AsynchronousTest.swift */; };
 		F67B11A527282B5500B09C39 /* FileStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B11A427282B5500B09C39 /* FileStorageTests.swift */; };
 		F67B11A727282F3800B09C39 /* CodableFileStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B11A627282F3800B09C39 /* CodableFileStorageTests.swift */; };
+		F6D15FF1274551A200F03FFF /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D15FF0274551A200F03FFF /* Capacity.swift */; };
 		F6E046232496909700F638F1 /* StorageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E046192496909700F638F1 /* StorageKit.framework */; };
 		F6E046282496909700F638F1 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E046272496909700F638F1 /* UserDefaultsTests.swift */; };
 		F6E0462A2496909700F638F1 /* StorageKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E0461C2496909700F638F1 /* StorageKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +61,7 @@
 		F67085D5249A750400310500 /* AsynchronousTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousTest.swift; sourceTree = "<group>"; };
 		F67B11A427282B5500B09C39 /* FileStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTests.swift; sourceTree = "<group>"; };
 		F67B11A627282F3800B09C39 /* CodableFileStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFileStorageTests.swift; sourceTree = "<group>"; };
+		F6D15FF0274551A200F03FFF /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		F6E046192496909700F638F1 /* StorageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E0461C2496909700F638F1 /* StorageKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageKit.h; sourceTree = "<group>"; };
 		F6E0461D2496909700F638F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				F67085C1249A746500310500 /* StorageProtocol.swift */,
 				F616E9C2273EB71600331805 /* STLogger.swift */,
 				F6E0461D2496909700F638F1 /* Info.plist */,
+				F6D15FF0274551A200F03FFF /* Capacity.swift */,
 			);
 			path = StorageKit;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				F65A328B2722C99A00431976 /* Storage+URLCache.swift in Sources */,
 				F67085CD249A747C00310500 /* CodableFileStorageConfiguration.swift in Sources */,
 				F67085C8249A747200310500 /* Errors.swift in Sources */,
+				F6D15FF1274551A200F03FFF /* Capacity.swift in Sources */,
 				F67085CF249A747C00310500 /* CodableFileStorageProtocol.swift in Sources */,
 				F67085D1249A747C00310500 /* CodableFileStorage.swift in Sources */,
 				F6E04637249690D100F638F1 /* Storage.swift in Sources */,
