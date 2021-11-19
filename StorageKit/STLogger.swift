@@ -9,11 +9,11 @@
 import Foundation
 
 
-final internal class STLogger {
+final public class STLogger {
     
-    static let shared = STLogger()
+    public static let shared = STLogger()
     
-    init() {
+    public init() {
         Storage.allowsLogging = false
         FileStorage.allowsLogging = false
         CodableFileStorage.allowsLogging = false

@@ -66,12 +66,12 @@ public class Storage: STLoggerProtocol {
                 result = Capacity(bytes: capacity)
             } else {
                 // TODO: Handle error. It is not a critical error.
-                if Self.allowsLogging {
+                if Storage.allowsLogging {
                     STLogger.shared.log(message: "totalDiskSize is unavailable")
                 }
             }
         } catch let error {
-            if Self.allowsLogging {
+            if Storage.allowsLogging {
                 STLogger.shared.log(message: "Error retrieving totalDiskSize: \(error.localizedDescription)")
             }
             // TODO: Handle error. It is not a critical error.
