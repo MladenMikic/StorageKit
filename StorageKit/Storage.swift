@@ -108,15 +108,4 @@ public class Storage: STLoggerProtocol {
 }
 
 
-public extension UserDefaults {
-    func increment(value: Int, forKey key: String) {
-        var count = Storage.standard.integer(forKey: key)
-        count += value
-        Storage.standard.set(value, forKey: key)
-    }
-    
-    func increment(forKey key: String) {
-        self.increment(value: 1, forKey: key)
-    }
-}
 

@@ -10,6 +10,8 @@
 		F616E9C3273EB71600331805 /* STLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F616E9C2273EB71600331805 /* STLogger.swift */; };
 		F65A328B2722C99A00431976 /* Storage+URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A328A2722C99A00431976 /* Storage+URLCache.swift */; };
 		F65A328C2722C99A00431976 /* Storage+URLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A328A2722C99A00431976 /* Storage+URLCache.swift */; };
+		F66B2F9727606D3700750B62 /* UserDefaults+Increment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B2F9627606D3700750B62 /* UserDefaults+Increment.swift */; };
+		F66B2F9927606D5000750B62 /* FileManager+userDocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B2F9827606D5000750B62 /* FileManager+userDocumentsDirectory.swift */; };
 		F67085C2249A746500310500 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C1249A746500310500 /* StorageProtocol.swift */; };
 		F67085C3249A746500310500 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C1249A746500310500 /* StorageProtocol.swift */; };
 		F67085C6249A747200310500 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67085C4249A747200310500 /* FileStorage.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		F616E9C2273EB71600331805 /* STLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLogger.swift; sourceTree = "<group>"; };
 		F65A328A2722C99A00431976 /* Storage+URLCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+URLCache.swift"; sourceTree = "<group>"; };
+		F66B2F9627606D3700750B62 /* UserDefaults+Increment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Increment.swift"; sourceTree = "<group>"; };
+		F66B2F9827606D5000750B62 /* FileManager+userDocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+userDocumentsDirectory.swift"; sourceTree = "<group>"; };
 		F67085C1249A746500310500 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		F67085C4249A747200310500 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		F67085C5249A747200310500 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F66B2F9527606D2800750B62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F66B2F9627606D3700750B62 /* UserDefaults+Increment.swift */,
+				F66B2F9827606D5000750B62 /* FileManager+userDocumentsDirectory.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F6E0460F2496909700F638F1 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		F6E0461B2496909700F638F1 /* StorageKit */ = {
 			isa = PBXGroup;
 			children = (
+				F66B2F9527606D2800750B62 /* Extensions */,
 				F6E0461C2496909700F638F1 /* StorageKit.h */,
 				F6E04633249690D100F638F1 /* Documentation.md */,
 				F6E04634249690D100F638F1 /* Storage.swift */,
@@ -255,12 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66B2F9727606D3700750B62 /* UserDefaults+Increment.swift in Sources */,
 				F65A328B2722C99A00431976 /* Storage+URLCache.swift in Sources */,
 				F67085CD249A747C00310500 /* CodableFileStorageConfiguration.swift in Sources */,
 				F67085C8249A747200310500 /* Errors.swift in Sources */,
 				F6D15FF1274551A200F03FFF /* Capacity.swift in Sources */,
 				F67085CF249A747C00310500 /* CodableFileStorageProtocol.swift in Sources */,
 				F67085D1249A747C00310500 /* CodableFileStorage.swift in Sources */,
+				F66B2F9927606D5000750B62 /* FileManager+userDocumentsDirectory.swift in Sources */,
 				F6E04637249690D100F638F1 /* Storage.swift in Sources */,
 				F67085C2249A746500310500 /* StorageProtocol.swift in Sources */,
 				F616E9C3273EB71600331805 /* STLogger.swift in Sources */,
