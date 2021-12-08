@@ -142,6 +142,7 @@ public class CodableFileStorage: STLoggerProtocol {
         do {
             try self.storage.saveItem(from: sourceURL, for: key)
         } catch let error {
+            self.log(message:"\(self): \(#function): error: \(error)")
             throw error
         }
     }
