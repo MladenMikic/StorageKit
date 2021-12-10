@@ -28,6 +28,8 @@ public class CodableFileStorage: STLoggerProtocol {
     private let storage: FileStorage
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
+    
+    // MARK: - Init.
 
     public init(
         storage: FileStorage,
@@ -38,11 +40,12 @@ public class CodableFileStorage: STLoggerProtocol {
         self.decoder = decoder
         self.encoder = encoder
     }
+    
+    // MARK: - Fetch.
 
     public func fetch<T: Decodable>(for key: String) throws -> T {
         
         self.log(message: "\(self) :\(#function) :\(#line)")
-        
         let data = try storage.load(for: key)
         return try decoder.decode(T.self, from: data)
     }
@@ -91,6 +94,8 @@ public class CodableFileStorage: STLoggerProtocol {
             self?.storage.load(for: key, handler: handler)
         }
     }
+    
+    // MARK: - Save.
 
     public func save<T: Encodable>(_ value: T, for key: String) throws {
         
@@ -159,5 +164,14 @@ public class CodableFileStorage: STLoggerProtocol {
         }
         
     }
+    
+    // MARK: - Remove.
+    
+    public func removeItem(at url: URL) throws {
+        try FileManager.default.removeItem(at: url)
+    }
 
+    public func removeItem(for key: String) throws {
+       try self.storage.removeItem(for: key)
+    }
 }

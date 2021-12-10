@@ -121,7 +121,7 @@ extension FileStorage: WritableStorage {
                     try FileManager.default.removeItem(at: url)
                 }
                 try FileManager.default.copyItem(at: sourceURL, to: url)
-
+                
                 strongSelf.log(message: "\(strongSelf) :\(#function) Finished copying to disk.")
             } catch let error {
                 strongSelf.log(message: "\(strongSelf) :\(#function) Failed copying to disk with error: \(error).")
@@ -183,5 +183,23 @@ extension FileStorage: ReadableStorage {
         queue.async { [weak self] in
             handler(self?.path.appendingPathComponent(key))
         }
+    }
+}
+
+extension FileStorage {
+    public func removeItem(for key: String) throws {
+        
+        self.log(message: "\(self) :\(#function) :\(#line)")
+        
+        let url = self.path.appendingPathComponent(key)
+        
+        do {
+            try FileManager.default.removeItem(at: url)
+            self.log(message: "\(self) :\(#function) removed item for key: \(key) in: \(url)")
+        } catch let error {
+            self.log(message: "\(self) :\(#function) Failed removing item for key: \(key) with error: \(error).")
+            throw error
+        }
+        
     }
 }
