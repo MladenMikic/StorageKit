@@ -14,9 +14,10 @@ final public class STLogger {
     public static let shared = STLogger()
     
     public init() {
-        Storage.allowsLogging = false
-        FileStorage.allowsLogging = false
-        CodableFileStorage.allowsLogging = false
+        let isStorageLoggingAllowed = true
+        Storage.allowsLogging = isStorageLoggingAllowed
+        FileStorage.allowsLogging = isStorageLoggingAllowed
+        CodableFileStorage.allowsLogging = isStorageLoggingAllowed
     }
 }
 
