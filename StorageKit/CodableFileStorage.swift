@@ -174,4 +174,6 @@ public class CodableFileStorage: STLoggerProtocol {
     public func removeItem(for key: String) throws {
        try self.storage.removeItem(for: key)
     }
+    
+    public func fileExists(atPath: String) -> Bool { FileManager.default.fileExists(atPath: atPath) }
 }

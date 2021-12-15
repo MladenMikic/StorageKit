@@ -184,9 +184,11 @@ extension FileStorage: ReadableStorage {
             handler(self?.path.appendingPathComponent(key))
         }
     }
+    
 }
 
 extension FileStorage {
+    
     public func removeItem(for key: String) throws {
         
         self.log(message: "\(self) :\(#function) :\(#line)")
@@ -202,4 +204,5 @@ extension FileStorage {
         }
         
     }
+    
 }
