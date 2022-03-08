@@ -98,9 +98,9 @@ public class Storage: STLoggerProtocol {
        
         let storageValues =
         """
-            totalDiskSize: \t\t\(Storage.shared.totalDiskSize.GBs) GB
-            availableDiskSize: \t\(Storage.shared.availableDiskSize.GBs) GB
-            usedDiskSize: \t\t\(Storage.shared.usedDiskSize.GBs) GB
+            totalDiskSize: \t\t\(Storage.shared.totalDiskSize.roundedGBs) GB
+            availableDiskSize: \t\(Storage.shared.availableDiskSize.roundedGBs) GB
+            usedDiskSize: \t\t\(Storage.shared.usedDiskSize.roundedGBs) GB
         """
         self.log(message: storageValues)
     }
