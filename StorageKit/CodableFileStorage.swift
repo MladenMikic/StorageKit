@@ -75,12 +75,12 @@ public class CodableFileStorage: STLoggerProtocol {
                 else
                 {
                     self?.log(message: "\(String(describing: self)) :\(#function) Failed fetching data.")
-                    handler(.failure(StorageError.notFound))
+                    handler(.failure(StorageError.resourceNotFound(forKey: key)))
                 }
                 
             } catch let error {
                 self?.log(message: "\(String(describing: self)) :\(#function) Failed fetching data with error: \(error)")
-                handler(.failure(StorageError.notFound))
+                handler(.failure(StorageError.resourceNotFound(forKey: key)))
             }
             
         }

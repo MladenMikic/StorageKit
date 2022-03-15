@@ -156,7 +156,7 @@ extension FileStorage: ReadableStorage {
         
         let url = path.appendingPathComponent(key)
         
-        guard let data = fileManager.contents(atPath: url.path) else { throw StorageError.notFound }
+        guard let data = fileManager.contents(atPath: url.path) else { throw StorageError.resourceNotFound(forKey: key) }
         
         return data
     }
