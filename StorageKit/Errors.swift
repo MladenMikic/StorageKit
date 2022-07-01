@@ -9,6 +9,7 @@
 import Foundation
 
 public enum StorageError: Error, LocalizedError {
+    case resourcesNotFound
     case resourceNotFound(forKey: String)
     case cantWrite(Error)
     case releasedSelf
@@ -16,10 +17,12 @@ public enum StorageError: Error, LocalizedError {
     public var errorDescription: String? {
         switch self {
             // (DE) Errors.
+            case .resourcesNotFound:
+                return NSLocalizedString("Several resources could not be found on the device drive", comment: "")
             case .resourceNotFound(let key):
-                return NSLocalizedString("Resource could not be found on device drive. Resource key: \(key)", comment: "")
+                return NSLocalizedString("The resource could not be found on the device drive. (key: \(key))", comment: "")
             case .cantWrite(let writeError):
-            return NSLocalizedString("Can not write to device storage. Storage error: \(writeError.localizedDescription)", comment: "")
+                return NSLocalizedString("Can not write to device storage. Storage error: \(writeError.localizedDescription)", comment: "")
             case .releasedSelf:
                 return NSLocalizedString("Self has been released.", comment: "")
         }
